@@ -40,3 +40,27 @@ Review the week, answer open questions, preview Week 2 (machine learning fundame
 
 ## Alper's Log
 *(append your notes below as you go — what you did, what was confusing, what you'd want explained again)*
+
+1. Clone this repository
+2. Create a new branch for yourself
+3. Add your log entry for this week under `logs/w1/`
+4. Commit, push, and open a pull request
+5. Mentor reviews and merges (or asks for one small change first)
+
+1. Clone this repository
+2. Create a new branch for yourself
+3. Add your log entry for this week under `logs/w1/`
+4. Commit, push, and open a pull request
+5. Mentor reviews and merges (or asks for one small change first)
+
+1. Clone this repository
+2. Create a new branch for yourself
+3. Add your log entry for this week under `logs/w1/`
+4. Commit, push, and open a pull request
+5. Mentor reviews and merges (or asks for one small change first)
+
+1. Clone this repository
+2. Create a new branch for yourself
+3. Add your log entry for this week under `logs/w1/`
+4. Commit, push, and open a pull request
+5. Mentor reviews and merges (or asks for one small change first)
