@@ -15,13 +15,44 @@ it, and when would it fail me?
 
 | Session | Format | Focus |
 |---|---|---|
-| Day 1 | Self-study | Classification: Naive Bayes, KNN |
-| Day 2 | Self-study | Regression: Linear Regression, Decision Trees |
-| Day 3 | Self-study | Clustering: K-Means, supervised vs. unsupervised recap |
-| Day 4 | Self-study | Comparison exercise + use your AI agent to self-quiz |
+| Day 1 | Self-study | Foundations: what is supervised vs. unsupervised learning |
+| Day 2 | Self-study | Classification: Naive Bayes, KNN |
+| Day 3 | Self-study | Regression: Linear Regression, Decision Trees |
+| Day 4 | Self-study | Clustering: K-Means + comparison exercise + AI agent self-quiz |
 | Day 5 | Meeting | Discuss answers, clarify confusion, preview Week 3 |
 
-## Day 1 — Classification
+## Day 1 — Foundations: Supervised vs. Unsupervised Learning
+
+Before any algorithm names, get this distinction rock solid — everything else this
+week is just "which flavor of supervised or unsupervised is this."
+
+### What is Machine Learning, in one line
+Teaching a computer to find patterns in data instead of writing explicit rules by hand.
+
+### Supervised Learning
+- **Definition:** you have *labeled* data — every example comes with the "correct answer" (a label/target), and the algorithm learns to map inputs to that answer.
+- **Two flavors, both covered this week:**
+  - **Classification** — the answer is a category (e.g. spam / not spam)
+  - **Regression** — the answer is a number (e.g. a price)
+- **Example:** given past emails already marked spam / not spam, predict whether a new email is spam.
+
+### Unsupervised Learning
+- **Definition:** you have *unlabeled* data — no "correct answer" is given. The algorithm has to find structure or patterns in the data on its own.
+- **The flavor covered this week: Clustering** — grouping data points together by similarity, with no predefined groups.
+- **Example:** given customer purchase histories with no labels at all, group customers into segments that behave similarly.
+
+### The core difference, in one sentence
+**Supervised** = you're given the answers and want to predict new ones. **Unsupervised** = you're given no answers and want to discover structure.
+
+### Resource
+Google's Machine Learning Crash Course — the "Introduction to ML" section (developers.google.com/machine-learning) covers exactly this distinction in plain language with visuals. If you'd rather watch something, search "supervised vs unsupervised learning" — it's such a fundamental split that most well-rated explainer videos cover it well.
+
+### Self-check (write your answers in your log)
+- Is "predicting whether a transaction is fraud, using past examples already labeled fraud / not-fraud" supervised or unsupervised? Why?
+- Is "grouping news articles by topic, when no topics are defined ahead of time" supervised or unsupervised? Why?
+- Come up with one more real-world example of each, in your own words.
+
+## Day 2 — Classification (Supervised)
 
 ### Naive Bayes
 - **Intuition:** uses Bayes' theorem to estimate the probability of each class given the input features, assuming the features don't influence each other ("naive").
@@ -35,7 +66,7 @@ it, and when would it fail me?
 - **Watch out for:** gets slow and unreliable as data size and number of features grow (curse of dimensionality); sensitive to feature scaling.
 - **Interactive:** Stanford's CS231n kNN demo — search "cs231n knn demo". You place points on a 2D plane, change `k`, and watch the decision regions change live. Best way to build real intuition for this one.
 
-## Day 2 — Regression
+## Day 3 — Regression (Supervised)
 
 ### Linear Regression
 - **Intuition:** fits the straight line (or plane) through the data that minimizes prediction error.
@@ -49,7 +80,7 @@ it, and when would it fail me?
 - **Watch out for:** left to grow freely, they overfit — memorize the training data instead of generalizing.
 - **Interactive:** r2d3.us — "A Visual Introduction to Machine Learning" (Part 1 and Part 2). A scroll-through visual explainer that builds a decision tree in front of you and shows overfitting happening. One of the best ML-intuition resources on the web, genuinely worth the full read for both parts.
 
-## Day 3 — Clustering (Unsupervised)
+## Day 4 — Clustering (Unsupervised) + Comparison Exercise
 
 ### K-Means
 - **Intuition:** given a chosen number of groups `k`, repeatedly (1) assign each point to its nearest center, (2) recompute each center as the average of its assigned points, until things stop changing.
@@ -57,10 +88,7 @@ it, and when would it fail me?
 - **Watch out for:** you have to choose `k` yourself, it assumes roughly round/blob-shaped clusters, and the result depends on where the centers start out.
 - **Interactive:** naftaliharris.com/blog/visualizing-k-means-clustering — drop your own points on a canvas and step through the algorithm one iteration at a time. Excellent for seeing exactly why initialization matters.
 
-### Supervised vs. unsupervised — recap
-Write a couple of sentences in your log: what's the actual difference in *what you're given* (labels or not) and *what you get out* (a prediction vs. a grouping)?
-
-## Day 4 — Comparison exercise + use your AI agent
+### Comparison exercise + use your AI agent
 
 Use the AI agent skills from Week 1 here — this *is* the exercise, not a shortcut around it.
 Ask Claude/Copilot things like:
