@@ -1,5 +1,7 @@
 # Week 1 – Git & GitHub + AI Coding Agents
 
+Hi there
+
 ## Goal
 Get comfortable with the day-to-day git/GitHub workflow and start using AI coding
 agents (Copilot, Claude, etc.) as a self-help tool for the rest of the internship.
@@ -40,3 +42,16 @@ Review the week, answer open questions, preview Week 2 (machine learning fundame
 
 ## Alper's Log
 *(append your notes below as you go — what you did, what was confusing, what you'd want explained again)*
+
+## Goal
+Get comfortable with the day-to-day git/GitHub workflow and start using AI coding
+agents (Copilot, Claude, etc.) as a self-help tool for the rest of the internship.
+## Goal
+Get comfortable with the day-to-day git/GitHub workflow and start using AI coding
+agents (Copilot, Claude, etc.) as a self-help tool for the rest of the internship.
+## Goal
+Get comfortable with the day-to-day git/GitHub workflow and start using AI coding
+agents (Copilot, Claude, etc.) as a self-help tool for the rest of the internship.
+## Goal
+Get comfortable with the day-to-day git/GitHub workflow and start using AI coding
+agents (Copilot, Claude, etc.) as a self-help tool for the rest of the internship.
