@@ -50,20 +50,22 @@ Git'in temel mantığını öğrendim: working directory, staging area ve commit
 yerel bir Git deposu oluşturup (`git init`) GitHub'a bağlayarak (`git remote add`, `git push`) 
 ilk push işlemimi de gerçekleştirdim.
 
-Öğrendiğim komutlar:
-- `git init` — yeni bir depo başlatma
-- `git add` — değişiklikleri staging alanına ekleme
-- `git commit -m "mesaj"` — değişiklikleri kalıcı olarak kaydetme
-- `git status` — depo durumunu kontrol etme
-- `git remote add origin <url>` — yerel depoyu GitHub'a bağlama
-- `git push` — commit'leri GitHub'a gönderme
-- `git checkout -b <branch-adı>` — yeni bir branch oluşturup geçiş yapma
-- `git branch` — mevcut branch'leri ve aktif olanı görme
+## Goal
+Get comfortable with the day-to-day git/GitHub workflow and start using AI coding
+agents (Copilot, Claude, etc.) as a self-help tool for the rest of the internship.
+
+## Goal
+Get comfortable with the day-to-day git/GitHub workflow and start using AI coding
+agents (Copilot, Claude, etc.) as a self-help tool for the rest of the internship.
 
 Kafamı biraz karıştıran nokta: bilgisayarımda "Masaüstü" aslında OneDrive üzerinden 
 senkronize edildiği için (`OneDrive\Desktop`), dosya konumlarını bulmakta biraz zorlandım. 
 Bunu çözerek dosya sistemi ve terminal komutlarını (cd, dir) daha iyi kavradım.
 
-**3. Gün (Bu depo üzerinde çalışma):**
-Bu depoyu klonladım (`git clone`), kendi adıma `alper-w1-log` adında bir branch oluşturdum 
-(`git checkout -b alper-w1-log`) ve bu haftanın günlüğünü `logs/w1/w1_tasks.md` dosyasına ekledim.
+## Goal
+Get comfortable with the day-to-day git/GitHub workflow and start using AI coding
+agents (Copilot, Claude, etc.) as a self-help tool for the rest of the internship.
+
+## Goal
+Get comfortable with the day-to-day git/GitHub workflow and start using AI coding
+agents (Copilot, Claude, etc.) as a self-help tool for the rest of the internship.
