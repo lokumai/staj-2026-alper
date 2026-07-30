@@ -3,21 +3,30 @@
 ## Goal
 
 Before touching real TCDD data next week, get comfortable with the *environment*
-ML engineers and Data Scientists actually work in day-to-day, and see each Week 2
-algorithm run end-to-end, once, on a clean textbook dataset. No exploratory data
-analysis, no data cleaning, no tuning this week — that's deliberate. The datasets
-below are the classic education-ready ones (Iris, Diabetes — both originally from
-the UCI Machine Learning Repository) built directly into scikit-learn, precisely so
-there's zero friction between "open notebook" and "see the algorithm work."
+ML engineers and Data Scientists actually work in day-to-day, then **build one
+notebook per Week 2 algorithm yourself**, from scratch, in Colab. Nobody is
+handing you working code this week — you're given a task and a dataset, and you
+write the notebook. Use your AI coding agent (Claude/Copilot) whenever you get
+stuck on syntax or an error message — that's expected and encouraged, the same way
+it was in Week 1. The goal is that *you* understand and can explain what the
+notebook does and why the result looks the way it does, not that you memorize
+scikit-learn syntax.
+
+No exploratory data analysis, no data cleaning, no hyperparameter tuning this week
+— that's deliberate, and saved for Week 4 on real data. Every dataset below is a
+famous, education-ready one (Iris, Diabetes — both originally from the UCI Machine
+Learning Repository — plus one synthetic dataset made for teaching clustering),
+built directly into scikit-learn, so there's zero friction between "start a new
+notebook" and "see the algorithm work."
 
 ## Schedule
 
 | Session | Format | Focus |
 |---|---|---|
 | Day 1 | Self-study | What is Jupyter / Colab, and why ML work looks different from software engineering |
-| Day 2 | Self-study | Run the classification notebooks: Naive Bayes, KNN |
-| Day 3 | Self-study | Run the regression notebooks: Linear Regression, Decision Tree |
-| Day 4 | Self-study | Run the clustering notebook: K-Means + write up observations |
+| Day 2 | Build | Classification tasks: Naive Bayes, KNN |
+| Day 3 | Build | Regression tasks: Linear Regression, Decision Tree |
+| Day 4 | Build | Clustering task: K-Means + write up observations |
 | Day 5 | Meeting | Walk through all 5 notebooks together, preview Week 4 (real TCDD EDA) |
 
 ## Day 1 — Jupyter, Colab, and how ML work differs from software engineering
@@ -37,11 +46,10 @@ change one line — which is how you'd normally work as a software engineer.
 ### What is Google Colab?
 Colab is Google's free, hosted Jupyter environment — it runs in your browser, needs
 zero local setup (no Python install, no virtual environments), comes with the
-common ML libraries already installed, and even gives free (limited) GPU access.
-It's the easiest way to just open a notebook and start running it, which is why
-every notebook below has an **"Open in Colab"** badge at the top — click it, and
-it opens straight from this GitHub repo into a live, runnable Colab session (you'll
-want to save a copy to your own Google Drive so your edits persist).
+common ML libraries (including scikit-learn and matplotlib) already installed, and
+even gives free (limited) GPU access. To start, go to colab.new (or Google Drive →
+New → More → Google Colaboratory) — that gives you a blank notebook you can start
+writing in immediately.
 
 ### How does ML/DS working style differ from software engineering?
 Worth internalizing this early, since it explains *why* the tools and habits differ:
@@ -69,29 +77,76 @@ Worth internalizing this early, since it explains *why* the tools and habits dif
 - What's one thing about the notebook workflow that would worry you if this code
   were going straight to production?
 
-## Day 2 — Classification notebooks
+## Day 2 — Classification tasks
 
-Run these in Colab (click the badge, save a copy to your Drive) and read the
-"what to notice" cell at the end of each one before moving on.
+Make one notebook per algorithm. For both, use the **Iris dataset** — a famous
+flower-measurement dataset built into scikit-learn (`sklearn.datasets.load_iris`),
+where the goal is predicting the species from 4 measurements. Use the same dataset
+for both so you can compare your two results directly.
 
-- **Naive Bayes** — [`logs/w3/notebooks/01_naive_bayes.ipynb`](notebooks/01_naive_bayes.ipynb) — Iris dataset
-- **KNN** — [`logs/w3/notebooks/02_knn.ipynb`](notebooks/02_knn.ipynb) — Iris dataset, same data as Naive Bayes so you can compare the two directly
+**Before you train anything, play with the raw data first.** Try a few different
+plots: a scatter plot of two features colored by species, a histogram of a single
+feature, a scatter plot of a *different* pair of features. Do the species look
+visually separable before you've trained anything? This habit — looking at the
+data from a few angles before modeling — is worth building now, and it also gives
+you something to sanity-check your model's results against later.
 
-## Day 3 — Regression notebooks
+**Task A — Naive Bayes**
+1. Load the Iris dataset and split it into training and test sets.
+2. Train a Naive Bayes classifier (`sklearn.naive_bayes.GaussianNB`) on the training set.
+3. Predict on the test set and report accuracy.
+4. Look at `predict_proba` for a few test examples — what do the actual probabilities behind a prediction look like?
 
-Both use the same single feature from the same dataset, on purpose — so you can see
-directly how a straight line (Linear Regression) and a step-like split (Decision
-Tree) fit the *same* points differently.
+**Task B — KNN**
+1. Same dataset, same train/test split approach.
+2. Train a KNN classifier (`sklearn.neighbors.KNeighborsClassifier`).
+3. Try at least 3 different values of `k` and report accuracy for each.
+4. Write down: which `k` did best, and what's your theory for why?
 
-- **Linear Regression** — [`logs/w3/notebooks/03_linear_regression.ipynb`](notebooks/03_linear_regression.ipynb) — Diabetes dataset
-- **Decision Tree** — [`logs/w3/notebooks/04_decision_tree.ipynb`](notebooks/04_decision_tree.ipynb) — Diabetes dataset
+## Day 3 — Regression tasks
 
-## Day 4 — Clustering notebook + wrap-up
+Make one notebook per algorithm. For both, use the **Diabetes dataset**
+(`sklearn.datasets.load_diabetes`) and, to keep things plottable, pick just **one**
+feature (e.g. BMI) as your input rather than all of them.
 
-- **K-Means** — [`logs/w3/notebooks/05_kmeans.ipynb`](notebooks/05_kmeans.ipynb) — synthetic blob dataset (generated on the spot, made for teaching clustering)
+**Before you train anything, play with the raw data first.** Try plotting your
+chosen feature against the target as a plain scatter plot, then try a different
+feature and see if the relationship looks tighter or looser. A histogram of the
+target itself is also worth a look — is it roughly symmetric, skewed, anything
+unexpected? Whichever feature ends up looking most related to the target is a
+reasonable one to model with.
 
-In your log, write a few sentences per notebook: what did you change (the "try
-this" suggestion in each notebook), and what happened when you did?
+**Task C — Linear Regression**
+1. Load the data, pick one feature, split into train/test.
+2. Train a `LinearRegression` model.
+3. Report R² and plot your predictions against the actual test points (a scatter plot of the real points plus your fitted line).
+
+**Task D — Decision Tree**
+1. Same feature, same dataset, same split.
+2. Train a `DecisionTreeRegressor` — try capping `max_depth` at a small number first.
+3. Plot your predictions the same way you did for linear regression.
+4. Compare the *shape* of your two plots — what's different about how the tree fits the data versus the straight line? What happens to the shape if you remove the `max_depth` cap?
+
+## Day 4 — Clustering task + wrap-up
+
+**Task E — K-Means**
+1. Generate a synthetic dataset with `sklearn.datasets.make_blobs` (this is a well-known synthetic dataset made specifically for teaching clustering — pick however many centers you like).
+2. Plot the raw points *before* running anything — with no labels, no colors, just the points. What do you see with your own eyes? How many groups would you guess, just by looking?
+3. Run `KMeans` on it and plot the result, coloring points by their assigned cluster, with the cluster centers marked. Compare this to your guess in step 2.
+4. Now deliberately set `n_clusters` in `KMeans` to the *wrong* number (not matching how many blobs you generated) and re-run, plotting the result again. What does it do? Is there a "right" way for K-Means to tell you it got the wrong number?
+
+## General note: play with it beyond what's asked
+
+Every task above lists a minimum. Beyond that, experiment freely — try other plot
+types (box plots, pair plots of multiple features at once, 3D scatter plots), swap
+in a different feature than the one suggested, change `test_size`, try more values
+of `k` or `max_depth` than asked. None of this needs to make it into your final
+notebook — the point is building a feel for how these things behave by poking at
+them, not just completing a checklist.
+
+In your log, write a few sentences per task: what you built, what you had to ask
+your AI agent for help with, what you noticed in the comparisons above, and
+anything interesting you found while experimenting beyond the minimum ask.
 
 ## Day 5 — Wrap-up meeting
 
