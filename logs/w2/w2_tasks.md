@@ -109,4 +109,91 @@ Walk through your answers together, clear up anything confusing, and preview Wee
 ---
 
 ## Alper's Log
-*(append your notes below as you go — what you did, what was confusing, what you'd want explained again)*
+
+**Day 1 — Supervised vs Unsupervised**
+Temel ayrımı oturttum: supervised'da veri etiketli, cevapları biliyorum ve
+yenilerini tahmin ediyorum; unsupervised'da etiket yok, yapıyı keşfediyorum.
+Google ML Crash Course'un "Introduction to ML" bölümünü çalıştım ve konuyla
+ilgili video izledim.
+
+Kendi örneklerim:
+- Supervised: Futbol antrenmanlarımdaki hız kayıtları + "sakatlandım /
+  sakatlanmadım" bilgisi → yeni bir antrenman için sakatlanma tahmini.
+- Unsupervised: Bir sürü futbolcunun istatistikleri var ama hiçbiri "şu tip
+  oyuncu" diye etiketlenmemiş → istatistiklerine göre benzer gruplara ayır.
+
+Öğrendiğim ince nokta: aynı veriden hem classification hem regression problemi
+çıkabiliyor. "Sakatlandım mı" bir kategori (classification), "kaç gün oyun
+dışı kaldım" bir sayı (regression).
+
+**Day 2 — Classification: Naive Bayes ve KNN**
+- KNN: en yakın k komşuya bakıp çoğunluğun sınıfını verir. Eğitim aşaması yok,
+  tüm veriyi hafızada tutar ("lazy learner"). Bedelini tahmin anında öder.
+- Naive Bayes: olasılıkları çarpar, en olası sınıfı seçer. "Naive" olması,
+  özellikleri birbirinden bağımsız varsaymasından geliyor.
+
+En çok kafama yatan şey ölçekleme meselesi oldu. KNN mesafeye göre çalıştığı
+için, aralığı geniş olan özellik (ör. kolesterol 100-300 vs yaş 20-90) kararı
+domine ediyor. Claude Code'a sorduğum meyve örneğinde bunu sayılarla test
+ettim: ölçeklemeden 2-1 oylama çıkıyordu, ölçekledikten sonra 3-0 oldu ve
+"komşu" sanılan bir nokta listeden düştü. Yani ölçekleme opsiyonel bir
+iyileştirme değil, doğru komşuyu bulmanın ön şartı.
+
+**Day 3 — Regression: Linear Regression ve Decision Trees**
+- Linear regression veriye en uygun düz çizgiyi geçirir. Katsayılar okunabilir
+  olduğu için iyi bir baseline. Ama doğrusal olmayan ilişkileri yakalayamıyor
+  ve aykırı değere çok duyarlı — çünkü hataların KARESİNİ minimize ediyor,
+  uzak nokta orantısız ceza yazdırıp çizgiyi kendine çekiyor.
+- Decision tree evet/hayır sorularıyla veriyi böler. Doğrusal olmayan
+  ilişkileri kendiliğinden yakalıyor, ölçekleme istemiyor, kurallar olarak
+  okunabiliyor. Ama serbest bırakılırsa ezberliyor (overfitting).
+
+Overfitting'i nasıl yakaladığımızı öğrendim: train/test split. Veriyi böl,
+bir kısmını modele hiç gösterme, sonra o kısımda test et. Eğitimde %100 test
+te %60 ise model öğrenmemiş, ezberlemiş demektir.
+
+**Day 4 — Clustering: K-Means + karşılaştırma egzersizi**
+K-Means iki adımı tekrarlıyor: her noktayı en yakın merkeze ata, sonra
+merkezleri kendi noktalarının ortalamasına taşı. Merkezler kımıldamayı
+bırakınca duruyor.
+
+Tuzakları: k'yı ben seçiyorum, kümelerin yuvarlak olduğunu varsayıyor ve
+başlangıç merkezlerine bağımlı. k seçimi için elbow yöntemini ve silhouette
+skorunu öğrendim.
+
+Claude Code'u egzersiz için kullandım — her algoritmayı gerçek dünya örneğiyle
+açıklattım ve KNN vs Naive Bayes karşılaştırması yaptırdım.
+
+**Karşılaştırma soruları — kendi cevaplarım**
+
+1. KNN vs Naive Bayes: Metin verisi, hız gereksinimi veya az eğitim verisi
+   varsa Naive Bayes. Özellikler birbiriyle güçlü ilişkiliyse (NB'nin
+   bağımsızlık varsayımı bozulur), karar sınırı düzensizse veya verinin
+   dağılımı hakkında varsayım yapmak istemiyorsam KNN. Kısaca: KNN'in düşmanı
+   boyut ve hacim, Naive Bayes'in düşmanı korelasyon.
+
+2. Linear Regression vs Decision Tree: Zıt yönlerde başarısız oluyorlar. LR
+   ilişkinin şeklini baştan varsayıyor — doğru varsayarsa az veriyle çok iş
+   çıkarır, yanlış varsayarsa hiçbir veri kurtarmaz; ayrıca tek bir aykırı
+   değer tüm çizgiyi bozar. Decision tree hiçbir şey varsaymıyor ama savurgan
+   ve gördüğü aralığın dışına çıkamıyor: eğitimde 300 m²'ye kadar ev gördüyse
+   500 m²'lik eve de aynı fiyatı biçer, çünkü tahminleri yaprak ortalamaları.
+
+3. Etiketsiz yeni veri setinde clustering doğru mu: Önce veride gerçekten
+   yapı var mı diye kontrol etmek gerekiyor, çünkü algoritma her zaman küme
+   döndürüyor — tamamen rastgele veriye bile. Kontrol yolları: 2 boyuta
+   indirip gözle bakmak, silhouette skoruna bakmak, veriyi ikiye bölüp
+   sonuçların tekrarlanıp tekrarlanmadığını görmek. Ayrıca "etiket yok" ile
+   "etiket alınamaz" aynı şey değil — birkaç yüz örneği elle etiketleyip
+   problemi supervised'a çevirebiliyorsam bu genelde daha güçlü olur.
+
+**önemli bulduklarım**
+- KNN ile K-Means'in ikisinde de "k" olması başta kafa karıştırıcıydı. KNN
+  supervised ve k = kaç komşuya bakılacağı; K-Means unsupervised ve k = kaç
+  küme oluşturulacağı.
+- Doğrusal olmayan bir ilişkide "parçalı linear regression yapsak" diye
+  düşünmüştüm, meğer bunun adı varmış (piecewise regression) ama kırılma
+  noktalarını elle seçmek gerekiyor. Decision tree bunu otomatik yapıyor.
+- Naive Bayes'in iki varsayımı olduğunu sonradan öğrendim: bağımsızlık
+  (adındaki "naive" bu) ve her özelliğin belirli bir dağılıma uyduğu. İkincisi
+  hiç aklıma gelmemişti.
