@@ -156,4 +156,152 @@ preview Week 4 — his first real task on the actual TCDD project (EDA on real d
 ---
 
 ## Alper's Log
-*(append your notes below as you go — what you did, what was confusing, what you'd want explained again)*
+## Alper's Log
+
+### Day 1 — Jupyter, Colab ve ML çalışma tarzı
+
+**Self-check 1: Notebook neden keşifsel veri işine script'ten daha uygun?**
+Kodu hücrelere bölüp adım adım çalıştırabildiğim için veriyi parça parça
+inceleyip her adımda çıktıyı görebiliyorum. Grafikler ve tablolar anında
+hücrenin altında göründüğü için gözlem–yorum–deneme döngüsü çok hızlı
+ilerliyor. Markdown hücreleriyle kod ve açıklamayı aynı yerde tutabiliyorum.
+Script'te tek bir satırı değiştirmek için her şeyi baştan çalıştırmak gerekirdi.
+
+**Self-check 2: Bu kod üretime gitse ne endişelendirirdi?**
+Gizli durum (hidden state) ve tekrarlanabilirlik. Hücreleri istediğim sırada
+çalıştırabildiğim için ekranda okuduğum kod ile gerçekte çalışmış olan sıra
+farklı olabiliyor. Değişkenler bellekte asılı kaldığından, bende çalışan bir
+notebook sıfırdan çalıştırıldığında aynı sonucu vermeyebilir. Üretimde en
+temel beklenti "temiz başlangıçtan çalıştır, aynı sonucu al" — notebook bunu
+yapısı gereği garanti etmiyor. Bu yüzden her notebook'u paylaşmadan önce
+Restart & Run All yaptım.
+
+### Task A — Naive Bayes (Iris)
+
+Modellemeden önce scatter plot ve histogram çizdim. Petal ölçümleri türleri
+sepal ölçümlerinden çok daha net ayırıyor: setosa tamamen kopuk bir küme,
+versicolor ve virginica ise sınırda birbirine değiyor.
+
+GaussianNB ile accuracy %97.8 çıktı (45 test örneğinden 44 doğru). Confusion
+matrix, tek hatanın tam da grafikte beklediğim yerde olduğunu gösterdi: bir
+versicolor, virginica sanılmış. Setosa'da hiç hata yok.
+
+En çok predict_proba çıktısı ilgimi çekti. Model her tahminde aynı derecede
+emin değil: setosa tahminlerinde olasılık tam 1.0 iken, sınıra yakın bir
+versicolor örneğinde 0.83'e karşı 0.17 çıktı. Accuracy bu farkı gizliyor —
+doğru/yanlış diyor ama modelin ne kadar emin olduğunu söylemiyor.
+
+### Task B — KNN (Iris)
+
+Task A ile aynı split'i (random_state=42) bilerek kullandım ki iki model
+doğrudan karşılaştırılabilsin.
+
+k = 1, 3, 5, 11, 25 için accuracy %100; k = 51'de %95.6'ya düştü. Sebebi:
+eğitim setinde her türden yaklaşık 35 örnek var, dolayısıyla k=51 dediğimde
+en yakın 35'i doğru türden gelse bile kalan 16'sı zorunlu olarak başka
+türlerden geliyor. Oylama hiçbir zaman saf olamıyor.
+
+Asgari ödevin ötesine geçip k'ya karşı accuracy grafiği çizdim. Grafikteki
+basamakların tek tek çiçeklere denk geldiğini fark ettim: test setinde 45
+örnek var, yani bir çiçek = 1/45 = 0.0222 ve tüm değerler bunun katı. Bu da
+KNN ile Naive Bayes arasındaki 0.02'lik farkın aslında "bir çiçek" demek
+olduğunu gösteriyor — bu kadar küçük bir test setinde o farka anlam
+yüklememek gerekiyor.
+
+Bir de ölçekleme deneyi yaptım ve beklediğimin TERSİ çıktı: StandardScaler
+sonrası accuracy düştü (k=51'de 0.9556'dan 0.8444'e). Sebebini araştırınca
+anladım — Iris'te özellikler eşit derecede faydalı değil. Petal ölçümleri
+türleri net ayırıyor, sepal ölçümleri karışık. Ham veride petal'in aralığı
+daha geniş olduğu için mesafe hesabında zaten ağır basıyordu ve bu tesadüfen
+doğru olanı yapıyordu. Ölçekleyince gürültülü olan sepal'i petal ile eşitlemiş
+oldum. Çıkarım: ölçekleme özelliklerin ÖLÇEK farkını kaldırır, ÖNEM farkını
+değil. Farklı birimlerdeki özelliklerde zorunlu, ama Iris'te dördü de aynı
+birimde olduğu için düzeltilecek bir bozukluk yoktu.
+
+### Task C — Linear Regression (Diabetes, bmi)
+
+Hedefin histogramı sağa çarpık: yığılma 50-150 arasında, 350'ye kadar uzanan
+bir kuyruk var. Üç özelliği (bmi, s5, age) hedefe karşı çizdim; age'de
+noktalar tamamen bulut gibiydi, bmi'da yukarı yönlü bir eğilim vardı. bmi ile
+modelledim.
+
+R² = 0.2803. BMI tek başına hedefteki değişkenliğin yaklaşık dörtte birini
+açıklıyor. Grafikte de eğilim gevşekti — aynı bmi değerinde target 50 de
+olabiliyordu 300 de — yani sayı gözümün gördüğünü doğruladı.
+
+İki katsayı da öğreticiydi. Kesişim 151.04, neredeyse hedefin ortalaması
+(152.1); sebebi özelliklerin ortalaması 0 olacak şekilde normalize edilmiş
+olması. Eğim 988 devasa görünüyor ama bmi normalize edilmiş, tüm aralığı
+-0.09 ile 0.17 arası; gerçek anlamı en düşük bmi'dan en yükseğine giderken
+tahminin ~257 puan artması. Katsayıyı yorumlayabilmek özelliğin biriminin
+anlamlı olmasına bağlıymış.
+
+### Task D — Decision Tree (Diabetes, bmi)
+
+Aynı veri, aynı özellik, aynı split. max_depth=3 ile R² = 0.2781 çıktı —
+Task C'deki 0.2803 ile pratikte aynı. İki tamamen farklı algoritma aynı
+sonucu verdi çünkü bmi ile target arasındaki ilişki zaten kabaca doğrusal;
+ağacın esnekliği burada fazladan bir şey kazandırmıyor.
+
+Skorlar aynı ama şekil çok farklı: linear regression düz bir çizgi, ağaç ise
+merdiven şeklinde basamaklar üretiyor. Ağaç bmi aralığını bölgelere ayırıp her
+bölgedeki tüm hastalara tek bir sayı (o yaprağın ortalaması) veriyor. Bölge
+içinde tahmin sabit, sınırı geçince aniden zıplıyor. İki uçtaki basamaklar da
+yatay uzuyor — ağaç gördüğü aralığın dışına çıkamıyor.
+
+max_depth'i artırdıkça train ve test R² ters yönlere gitti:
+- depth=2 → train 0.3926 / test 0.2748
+- depth=3 → train 0.4116 / test 0.2781
+- depth=5 → train 0.4659 / test 0.2427
+- sınırsız → train 0.6300 / test 0.1187
+
+Bu tam olarak overfitting. Sınırsız ağaç eğitim verisini iki kat daha iyi
+"biliyor" ama yeni veride linear regression'ın yarısı kadar işe yarıyor.
+Grafiği de dişli ve titrek bir çizgi — bir örüntü değil, gürültünün
+ezberlenmiş hali. En çarpıcı bulgu: modeli frenlemek onu güçlendirdi,
+max_depth=2 bile sınırsız ağacın iki katından iyi test skoru verdi.
+
+### Task E — K-Means (make_blobs)
+
+Ham noktalara renksiz baktığımda 4 grup net şekilde ayırt ediliyordu. K-Means
+k=4 ile çalıştığında bulduğu gruplar ve merkezler gözle gördüğümle örtüştü.
+
+Yanlış k verdiğimde algoritma hiç şikayet etmedi, hata vermedi, uyarmadı — ne
+istediysem onu üretti. İki farklı bozulma şekli gördüm: k=2 ve 3'te aralarında
+kocaman boşluk olan ayrı blob'ları birleştirdi; k=6 ve 8'de iki merkezi AYNI
+blob'un içine yerleştirip homojen bir grubu keyfi olarak ortasından böldü.
+
+Elbow grafiğinde ilk bakışta dirseği k=3 sandım. Sayılara bakınca yanıldığımı
+gördüm: 3→4 geçişi hâlâ 1541 puan kazandırıyor ama 4'ten sonraki her adım
+sadece ~72. 2→3 düşüşü çok büyük olduğu için (7320) grafiği eziyor ve sonraki
+gerçek düşüşü görsel olarak küçük gösteriyor. Elbow'un zayıflığı tam da bu:
+"dirsek nerede" gözle verilen öznel bir karar. Silhouette daha net konuştu,
+tepe k=4'te (0.752), ama k=3 de çok yakın (0.735).
+
+Sonuç: K-Means'in içeriden "yanlış sayı verdin" deme yolu yok. Elbow ve
+silhouette dışarıdan bakan teşhis araçları ve ikisi de kesin cevap vermiyor.
+Burada doğru cevabı biliyorum çünkü veriyi ben centers=4 ile ürettim — gerçek
+bir projede o bilgi olmayacak.
+
+### AI ajanı kullanımı
+
+matplotlib subplots sözdizimi, np.linspace ile grid oluşturup ağacın
+basamaklarını çizme, StandardScaler'da neden fit_transform sadece eğitim
+setine uygulanır (data leakage), R² nasıl okunur, predict_proba çıktısını
+yorumlama, feature names uyarısının sebebi.]
+
+### Kafamı karıştıran 
+
+- Ölçekleme deneyinin sonucu beklediğimin tersi çıktı. "KNN'de ölçekleme
+  zorunludur" diye öğrenmiştim ama burada zarar verdi. Ölçek farkı ile önem
+  farkı ayrımını doğru anladığımdan emin olmak isterim.
+- Elbow grafiğini gözle yanlış okudum. Bu tür grafiklerde log ölçek kullanmak
+  ya da düşüş farklarını ayrıca hesaplamak standart bir pratik mi?
+- Notebook'ları git'e koyunca diff'lerin okunamaz olduğunu gördüm. Ekipte
+  bunun için kullanılan bir araç var mı (nbstripout, jupytext gibi)?
+
+### Not
+
+Colab'ın GitHub entegrasyonunu kullanamadım: lokumai organizasyonu için
+üçüncü taraf uygulama erişimi gerekiyor. Notebook'ları Colab'dan indirip
+repoya elle ekledim.
