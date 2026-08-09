@@ -1,0 +1,16 @@
+hat_id,kalkis_istasyonu,varis_istasyonu,mesafe_km,hat_tipi,maksimum_hiz_kmh,istasyon_muduru_telefon,peron_yenileme_butcesi_tl
+HAT-01,Ankara Gar,Istanbul Sogutlucesme,533,Elektrikli-Sinyalli,250,0555-378-6502,770479
+HAT-02,ANKARA,Eskisehir,245,Elektrikli-Sinyalli,250,0555-653-2320,390191
+HAT-03,ank-gar,Konya,312,Elektrikli-Sinyalli,250,0555-254-4788,903283
+HAT-04,Istanbul Pendik,Eskisehir Gar,288,Elektrikli-Sinyalli,200,0555-810-3503,1581468
+HAT-05,Izmir Alsancak,Aydin,130,Tek Hat,120,0555-319-2052,970041
+HAT-06,IZMIR,Denizli,260,Tek Hat,120,0555-517-6421,1237938
+HAT-07,Adana,Mersin,67,Cift Hat,140,0555-577-7812,230580
+HAT-08,Sivas,Ankara Gar,405,Elektrikli-Sinyalli,250,0555-311-7883,916792
+HAT-09,Kars,Erzurum,217,Tek Hat,100,0555-888-1320,1896697
+HAT-10,Malatya,Elazig,118,Tek Hat,100,0555-883-7232,1100299
+HAT-11,Kayseri,Ankara,380,Cift Hat,160,0555-106-6763,726236
+HAT-12,Eskisehir,Konya Gar,355,Elektrikli-Sinyalli,200,0555-871-7389,1889810
+HAT-13,Bandirma,Izmir,340,Tek Hat,120,0555-955-7865,1228730
+HAT-14,Balikesir,Manisa,165,Tek Hat,120,0555-865-9947,1777445
+HAT-15,Gaziantep,Adana Gar,230,Cift Hat,140,0555-717-4613,1123891

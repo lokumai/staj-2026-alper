@@ -1,0 +1,81 @@
+tren_id,tren_tipi,lokomotif_yasi,son_servis_gun_sayisi,motor_saglik_skoru,depo_sorumlusu_adi,garanti_durumu
+TREN-101,YHT,1,72,65.5,Ahmet Yilmaz,Uzatildi
+TREN-102,YHT,19,110,,Ahmet Yilmaz,Devam Ediyor
+TREN-103,Bolgesel,21,156,,Mehmet Demir,Uzatildi
+TREN-104,Yuk,12,116,92.0,Ahmet Yilmaz,Devam Ediyor
+TREN-105,Yuk,15,73,97.8,Ali Kaya,Devam Ediyor
+TREN-106,YHT,13,26,73.6,Ali Kaya,Devam Ediyor
+TREN-107,Yuk,22,33,75.0,Mustafa Celik,Bitti
+TREN-108,Anahat,23,51,61.8,Mehmet Demir,Bitti
+TREN-109,YHT,8,27,77.9,Ali Kaya,Devam Ediyor
+TREN-110,Anahat,16,55,87.7,Ahmet Yilmaz,Uzatildi
+TREN-111,Bolgesel,22,64,75.0,Mustafa Celik,Devam Ediyor
+TREN-112,Anahat,31,16,61.3,Ali Kaya,Bitti
+TREN-113,Anahat,7,56,82.4,Ali Kaya,Devam Ediyor
+TREN-114,Yuk,17,166,70.5,Mehmet Demir,Uzatildi
+TREN-115,Anahat,28,151,83.0,Ali Kaya,Devam Ediyor
+TREN-116,Bolgesel,21,128,61.9,Ahmet Yilmaz,Devam Ediyor
+TREN-117,Bolgesel,30,176,62.5,Fatma Sahin,Uzatildi
+TREN-118,Yuk,21,66,94.0,Ahmet Yilmaz,Uzatildi
+TREN-119,YHT,18,70,73.4,Ali Kaya,Bitti
+TREN-120,Bolgesel,19,2,94.6,Ali Kaya,Uzatildi
+TREN-121,Bolgesel,21,29,71.8,Mustafa Celik,Uzatildi
+TREN-122,Bolgesel,9,97,81.3,Mustafa Celik,Devam Ediyor
+TREN-123,Anahat,20,6,74.3,Ali Kaya,Devam Ediyor
+TREN-124,YHT,8,147,63.4,Fatma Sahin,Devam Ediyor
+TREN-125,Bolgesel,9,170,81.7,Ali Kaya,Uzatildi
+TREN-126,Yuk,35,56,89.8,Mehmet Demir,Uzatildi
+TREN-127,Anahat,17,173,77.3,Mustafa Celik,Bitti
+TREN-128,YHT,8,59,,Ahmet Yilmaz,Uzatildi
+TREN-129,Bolgesel,23,58,,Ahmet Yilmaz,Devam Ediyor
+TREN-130,YHT,2,86,,Mehmet Demir,Bitti
+TREN-131,Yuk,11,140,97.0,Mustafa Celik,Uzatildi
+TREN-132,Yuk,12,123,67.5,Ahmet Yilmaz,Uzatildi
+TREN-133,Yuk,16,110,94.1,Ahmet Yilmaz,Uzatildi
+TREN-134,YHT,2,105,91.6,Ahmet Yilmaz,Devam Ediyor
+TREN-135,Bolgesel,11,139,76.7,Ali Kaya,Bitti
+TREN-136,Bolgesel,32,21,94.0,Mustafa Celik,Devam Ediyor
+TREN-137,YHT,18,5,96.6,Mehmet Demir,Devam Ediyor
+TREN-138,Yuk,20,125,75.8,Ahmet Yilmaz,Devam Ediyor
+TREN-139,Yuk,5,101,91.0,Fatma Sahin,Bitti
+TREN-140,Yuk,27,144,79.2,Mehmet Demir,Bitti
+TREN-141,Bolgesel,35,16,81.4,Ali Kaya,Devam Ediyor
+TREN-142,YHT,19,124,93.7,Mehmet Demir,Devam Ediyor
+TREN-143,YHT,6,19,86.7,Mehmet Demir,Bitti
+TREN-144,YHT,19,65,61.6,Ahmet Yilmaz,Bitti
+TREN-145,Anahat,34,68,88.3,Mehmet Demir,Bitti
+TREN-146,Yuk,9,173,78.1,Ahmet Yilmaz,Devam Ediyor
+TREN-147,Yuk,24,146,62.9,Mehmet Demir,Uzatildi
+TREN-148,Anahat,9,91,94.7,Ali Kaya,Bitti
+TREN-149,Bolgesel,19,141,84.2,Mustafa Celik,Devam Ediyor
+TREN-150,Anahat,34,171,94.7,Ali Kaya,Devam Ediyor
+TREN-151,YHT,18,41,83.9,Ali Kaya,Devam Ediyor
+TREN-152,Anahat,21,127,95.9,Ahmet Yilmaz,Devam Ediyor
+TREN-153,Yuk,31,72,,Ali Kaya,Devam Ediyor
+TREN-154,Anahat,10,115,76.9,Ahmet Yilmaz,Devam Ediyor
+TREN-155,YHT,5,141,,Ali Kaya,Uzatildi
+TREN-156,Bolgesel,18,34,,Ali Kaya,Devam Ediyor
+TREN-157,Anahat,11,176,64.1,Mustafa Celik,Bitti
+TREN-158,Bolgesel,34,62,98.6,Mehmet Demir,Bitti
+TREN-159,YHT,6,87,76.3,Mehmet Demir,Bitti
+TREN-160,Bolgesel,30,29,61.5,Fatma Sahin,Devam Ediyor
+TREN-161,Bolgesel,31,119,92.4,Mehmet Demir,Devam Ediyor
+TREN-162,YHT,7,104,94.1,Ali Kaya,Bitti
+TREN-163,Yuk,26,139,61.1,Ali Kaya,Devam Ediyor
+TREN-164,Anahat,6,29,73.7,Ali Kaya,Bitti
+TREN-165,YHT,13,149,61.8,Fatma Sahin,Devam Ediyor
+TREN-166,Bolgesel,16,112,,Ali Kaya,Uzatildi
+TREN-167,Anahat,26,33,71.9,Ali Kaya,Uzatildi
+TREN-168,Yuk,15,105,81.9,Mehmet Demir,Bitti
+TREN-169,Yuk,26,46,71.9,Mustafa Celik,Devam Ediyor
+TREN-170,Anahat,14,55,82.9,Ali Kaya,Bitti
+TREN-171,Yuk,19,174,78.7,Mehmet Demir,Uzatildi
+TREN-172,YHT,10,133,84.5,Ahmet Yilmaz,Devam Ediyor
+TREN-173,Anahat,12,52,61.8,Fatma Sahin,Uzatildi
+TREN-174,YHT,15,108,82.7,Fatma Sahin,Bitti
+TREN-175,Yuk,12,39,60.2,Ahmet Yilmaz,Bitti
+TREN-176,Bolgesel,10,180,62.0,Mehmet Demir,Devam Ediyor
+TREN-177,Yuk,9,120,99.0,Mustafa Celik,Bitti
+TREN-178,Yuk,24,131,95.8,Fatma Sahin,Devam Ediyor
+TREN-179,Yuk,19,68,93.2,Ali Kaya,Uzatildi
+TREN-180,Yuk,25,63,63.1,Ali Kaya,Devam Ediyor
