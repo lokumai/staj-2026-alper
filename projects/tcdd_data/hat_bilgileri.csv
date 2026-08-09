@@ -1,16 +1,41 @@
-hat_id,kalkis_istasyonu,varis_istasyonu,mesafe_km,hat_tipi,maksimum_hiz_kmh,istasyon_muduru_telefon,peron_yenileme_butcesi_tl
-HAT-01,Ankara Gar,Istanbul Sogutlucesme,533,Elektrikli-Sinyalli,250,0555-378-6502,770479
-HAT-02,ANKARA,Eskisehir,245,Elektrikli-Sinyalli,250,0555-653-2320,390191
-HAT-03,ank-gar,Konya,312,Elektrikli-Sinyalli,250,0555-254-4788,903283
-HAT-04,Istanbul Pendik,Eskisehir Gar,288,Elektrikli-Sinyalli,200,0555-810-3503,1581468
-HAT-05,Izmir Alsancak,Aydin,130,Tek Hat,120,0555-319-2052,970041
-HAT-06,IZMIR,Denizli,260,Tek Hat,120,0555-517-6421,1237938
-HAT-07,Adana,Mersin,67,Cift Hat,140,0555-577-7812,230580
-HAT-08,Sivas,Ankara Gar,405,Elektrikli-Sinyalli,250,0555-311-7883,916792
-HAT-09,Kars,Erzurum,217,Tek Hat,100,0555-888-1320,1896697
-HAT-10,Malatya,Elazig,118,Tek Hat,100,0555-883-7232,1100299
-HAT-11,Kayseri,Ankara,380,Cift Hat,160,0555-106-6763,726236
-HAT-12,Eskisehir,Konya Gar,355,Elektrikli-Sinyalli,200,0555-871-7389,1889810
-HAT-13,Bandirma,Izmir,340,Tek Hat,120,0555-955-7865,1228730
-HAT-14,Balikesir,Manisa,165,Tek Hat,120,0555-865-9947,1777445
-HAT-15,Gaziantep,Adana Gar,230,Cift Hat,140,0555-717-4613,1123891
+hat_id,kalkis_istasyonu,varis_istasyonu,mesafe_km,hat_tipi,maksimum_hiz_kmh,zorluk_indeksi,viraj_sayisi,hemzemin_gecit_sayisi,bolge_mudurlugu,hat_insaat_yili,istasyon_muduru_telefon,peron_yenileme_butcesi_tl
+HAT-01,Ankara Gar,Istanbul Sogutlucesme,533,Yüksek Hizli,250,1.0,15,2,3. Bolge (Izmir),2019,0555-310-9482,2745635
+HAT-02,ANKARA,Eskisehir,245,Yüksek Hizli,250,0.8,10,0,2. Bolge (Ankara),2000,0555-865-7418,1439593
+HAT-03,ank-gar,Konya,312,Yüksek Hizli,250,0.9,8,1,1. Bolge (Istanbul),2017,0555-902-4921,2275709
+HAT-04,Istanbul Pendik,Eskisehir Gar,288,Elektrikli-Sinyalli,200,1.1,18,5,1. Bolge (Istanbul),1984,0555-346-9185,2876311
+HAT-05,Izmir Alsancak,Aydin,130,Tek Hat,120,1.5,45,22,1. Bolge (Istanbul),2011,0555-640-1197,1714555
+HAT-06,IZMIR,Denizli,260,Tek Hat,120,1.6,62,35,2. Bolge (Ankara),1975,0555-496-7895,1732650
+HAT-07,Adana,Mersin,67,Cift Hat,140,0.5,6,8,6. Bolge (Adana),2004,0555-276-8717,506149
+HAT-08,Sivas,Ankara Gar,405,Yüksek Hizli,250,1.4,25,4,5. Bolge (Malatya),1937,0555-169-1225,1299684
+HAT-09,Kars,Erzurum,217,Tek Hat,100,2.1,85,14,1. Bolge (Istanbul),1962,0555-161-7520,2324878
+HAT-10,Malatya,Elazig,118,Tek Hat,100,1.8,42,10,6. Bolge (Adana),1971,0555-829-9209,1942448
+HAT-11,Kayseri,Ankara,380,Cift Hat,160,1.2,30,12,6. Bolge (Adana),1989,0555-511-2350,2886608
+HAT-12,Eskisehir,Konya Gar,355,Elektrikli-Sinyalli,200,1.0,14,3,5. Bolge (Malatya),2003,0555-730-3501,1363784
+HAT-13,Bandirma,Izmir,340,Tek Hat,120,1.4,55,28,3. Bolge (Izmir),1945,0555-180-9377,1052272
+HAT-14,Balikesir,Manisa,165,Tek Hat,120,1.3,38,19,5. Bolge (Malatya),1954,0555-434-7401,2659695
+HAT-15,Gaziantep,Adana Gar,230,Cift Hat,140,1.2,28,15,6. Bolge (Adana),2016,0555-797-2083,1500945
+HAT-16,Afyonkarahisar,Usak,140,Tek Hat,110,1.5,40,20,6. Bolge (Adana),1990,0555-966-4909,442875
+HAT-17,Zonguldak,Karabuk,125,Tek Hat,90,2.5,90,12,1. Bolge (Istanbul),1966,0555-544-2900,2101579
+HAT-18,Samsun,Amasya,132,Tek Hat,90,2.2,75,16,5. Bolge (Malatya),2013,0555-156-6067,2993740
+HAT-19,Diyarbakir,Batman,92,Tek Hat,100,1.1,20,8,6. Bolge (Adana),2019,0555-279-2956,253120
+HAT-20,Van,Tatvan,142,Tek Hat,90,2.0,60,5,6. Bolge (Adana),1952,0555-111-3684,2282106
+HAT-21,Ankara Gar Ek-1,Istanbul Sogutlucesme,534,Yüksek Hizli,250,1.0,15,2,5. Bolge (Malatya),2001,0555-901-5247,900293
+HAT-22,ANKARA Ek-2,Eskisehir,246,Yüksek Hizli,250,0.8,10,0,6. Bolge (Adana),1951,0555-899-5403,695165
+HAT-23,ank-gar Ek-3,Konya,326,Yüksek Hizli,250,0.9,8,1,3. Bolge (Izmir),1938,0555-926-8034,1340769
+HAT-24,Istanbul Pendik Ek-4,Eskisehir Gar,294,Elektrikli-Sinyalli,200,1.1,18,5,3. Bolge (Izmir),1943,0555-829-2262,2280993
+HAT-25,Izmir Alsancak Ek-5,Aydin,134,Tek Hat,120,1.5,45,22,3. Bolge (Izmir),2000,0555-156-9185,2577692
+HAT-26,IZMIR Ek-6,Denizli,255,Tek Hat,120,1.6,62,35,2. Bolge (Ankara),1982,0555-361-2685,2607162
+HAT-27,Adana Ek-7,Mersin,78,Cift Hat,140,0.5,6,8,2. Bolge (Ankara),1949,0555-858-9336,210773
+HAT-28,Sivas Ek-8,Ankara Gar,396,Yüksek Hizli,250,1.4,25,4,2. Bolge (Ankara),1936,0555-147-8729,1726628
+HAT-29,Kars Ek-9,Erzurum,219,Tek Hat,100,2.1,85,14,2. Bolge (Ankara),1954,0555-978-1579,2518882
+HAT-30,Malatya Ek-10,Elazig,133,Tek Hat,100,1.8,42,10,4. Bolge (Sivas),2018,0555-329-6272,1241291
+HAT-31,Kayseri Ek-11,Ankara,383,Cift Hat,160,1.2,30,12,3. Bolge (Izmir),1975,0555-945-2276,2597195
+HAT-32,Eskisehir Ek-12,Konya Gar,356,Elektrikli-Sinyalli,200,1.0,14,3,5. Bolge (Malatya),1950,0555-789-1862,952224
+HAT-33,Bandirma Ek-13,Izmir,337,Tek Hat,120,1.4,55,28,1. Bolge (Istanbul),2001,0555-510-2129,2150746
+HAT-34,Balikesir Ek-14,Manisa,164,Tek Hat,120,1.3,38,19,3. Bolge (Izmir),1974,0555-188-8483,233425
+HAT-35,Gaziantep Ek-15,Adana Gar,231,Cift Hat,140,1.2,28,15,3. Bolge (Izmir),1960,0555-677-5979,2811866
+HAT-36,Afyonkarahisar Ek-16,Usak,137,Tek Hat,110,1.5,40,20,3. Bolge (Izmir),1994,0555-705-9083,1019661
+HAT-37,Zonguldak Ek-17,Karabuk,138,Tek Hat,90,2.5,90,12,2. Bolge (Ankara),2004,0555-254-1104,1919816
+HAT-38,Samsun Ek-18,Amasya,122,Tek Hat,90,2.2,75,16,5. Bolge (Malatya),1964,0555-454-1157,1605164
+HAT-39,Diyarbakir Ek-19,Batman,82,Tek Hat,100,1.1,20,8,4. Bolge (Sivas),2019,0555-969-6038,635993
+HAT-40,Van Ek-20,Tatvan,138,Tek Hat,90,2.0,60,5,2. Bolge (Ankara),2002,0555-529-9061,451218
